@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FashionHub</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Fashion Shop</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#" onclick="openForm('login')">Login</a></li>
+        <li><a href="#" onclick="openCart()">Cart (<span id="cart-count">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <h1>Step into Style</h1>
+    <p>Explore the latest fashion trends.</p>
+    <a href="#products" class="btn">Shop Now</a>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories" id="categories">
+    <h2>Categories</h2>
+    <div class="category-list">
+      <button onclick="filterProducts('all')">All</button>
+      <button onclick="filterProducts('Men')">Men</button>
+      <button onclick="filterProducts('Women')">Women</button>
+      <button onclick="filterProducts('Kids')">Kids</button>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="products" id="products">
+    <h2>Our Products</h2>
+    <div class="product-list">
+      <div class="product" data-category="Men">
+        <img src="images/menShirt.jpg" alt="Men Shirt"/>
+        <h3>Men's Shirt</h3>
+        <p>₹899</p>
+        <button onclick="addToCart('Men\'s Shirt', 899)">Add to Cart</button>
+      </div>
+      <div class="product" data-category="Men">
+        <img src="images/shirt.jpg" alt="Men Shirt"/>
+        <h3>Men's Shirt</h3>
+        <p>₹799</p>
+        <button onclick="addToCart('Men\'s Shirt', 799)">Add to Cart</button>
+      </div>
+      <div class="product" data-category="Men">
+        <img src="images/shirt1.jpg" alt="Men Shirt"/>
+        <h3>Men's Shirt</h3>
+        <p>₹999</p>
+        <button onclick="addToCart('Men\'s Shirt', 999)">Add to Cart</button>
+      </div>
+      <div class="product" data-category="Women">
+        <img src="images/womenDress.jpg" alt="Women Dress"/>
+        <h3>Summer Dress</h3>
+        <p>₹1299</p>
+        <button onclick="addToCart('Summer Dress', 1299)">Add to Cart</button>
+      </div>
+      <div class="product-list">
+      <div class="product" data-category="women">
+        <img src="images/dress.jpg" alt="women-dress"/>
+        <h3>women dress</h3>
+        <p>₹899</p>
+        <button onclick="addToCart('Men\'s Shirt', 899)">Add to Cart</button>
+      </div>
+      <div class="product" data-category="Kids">
+        <img src="images/kidsWear.jpg" alt="Kids Wear"/>
+        <h3>Kids Wear</h3>
+        <p>₹599</p>
+        <button onclick="addToCart('Kids Wear', 599)">Add to Cart</button>
+      </div>
+       <div class="product" data-category="Kids">
+        <img src="images/kids.jpg" alt="Kids Wear"/>
+        <h3>Kids Wear</h3>
+        <p>₹499</p>
+        <button onclick="addToCart('Kids Wear', 499)">Add to Cart</button>
+      </div>
+      <div class="product" data-category="Women">
+        <img src="images/womenJeans.jpg" alt="Women Jeans"/>
+        <h3>Women Jeans</h3>
+        <p>₹999</p>
+        <button onclick="addToCart('Women Jeans', 999)">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product" data-category="Women">
+        <img src="images/jeans.jpg" alt="Women Jeans"/>
+        <h3>Women Jeans</h3>
+        <p>₹899</p>
+        <button onclick="addToCart('Women Jeans', 899)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeCart()">&times;</span>
+      <h3>Your Cart</h3>
+      <ul id="cart-items"></ul>
+      <p>Total: ₹<span id="cart-total">0</span></p>
+    </div>
+  </div>
+
+  <div id="product-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeProductModal()">&times;</span>
+    <img id="modal-img" src="" alt="Product" />
+    <h3 id="modal-name"></h3>
+    <p id="modal-price"></p>
+    <button id="modal-add-btn">Add to Cart</button>
+  </div>
+</div>
+
+  <!-- Login/Register Form -->
+  <div id="form-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeForm()">&times;</span>
+      <div id="login-form">
+        <h3>Login</h3>
+        <input type="text" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <button>Login</button>
+        <p>Don't have an account? <a href="#" onclick="switchForm()">Register</a></p>
+      </div>
+      <div id="register-form" style="display: none;">
+        <h3>Register</h3>
+        <input type="text" placeholder="Full Name" />
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <button>Register</button>
+        <p>Already have an account? <a href="#" onclick="switchForm()">Login</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <h3>Contact Us</h3>
+    <p>Email: rathvarashmika965@gmail.com | Phone: +91-9512946697</p>
+    <p>&copy; 2025 FashionHub. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  
+
+</body>
+</html>
